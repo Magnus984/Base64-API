@@ -4,9 +4,12 @@ import uvicorn
 from api.v1.schemas.response_model import (
                                 SuccessResponse,
                                 StandardResponse
-                                )   
+                                )
+from api.v1.routes import api_version_one   
 
 app = FastAPI()
+
+app.include_router(api_version_one)
 
 @app.get("/",
          tags=["Home"],
